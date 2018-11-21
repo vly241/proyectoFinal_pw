@@ -2,7 +2,7 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="admin">
+                <a class="logo" href="../admin">
                     <img src="img/medico.png" alt="Cotecnova" width="50" height="50" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">

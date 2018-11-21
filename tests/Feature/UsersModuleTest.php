@@ -13,10 +13,16 @@ class UsersModuleTest extends TestCase
      *
      * @return void
      */
-     function test_user()
+     function test_admin()
     {
        $this->get('/admin')
            ->assertStatus(200)
            ->assertSee('Historial Medico');
+    }
+    function test_medico()
+    {
+        $this->get('/medico')
+            ->assertStatus(200)
+            ->assertSee('Historial Medico');
     }
 }

@@ -10,17 +10,17 @@
 <body class="animsition">
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
-@include('header_medico_movil');
+@include('medico.header_medico_movil');
     <!-- END HEADER MOBILE-->
 
     <!-- MENU SIDEBAR-->
-@include('sidebar_medico');
+@include('medico.sidebar_medico');
     <!-- END MENU SIDEBAR-->
 
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <!-- HEADER DESKTOP-->
-@include('header_medico_escritorio');
+@include('medico.header_medico_escritorio');
         <!-- HEADER DESKTOP-->
 
 
