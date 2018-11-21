@@ -13,11 +13,16 @@
 
 
 Route::get('/', function () {
-    return 'Home';
+    return view('login');
 });
-Route::get('/usuarios', function () {
-    return 'Usuarios';
+Route::get('/admin', function () {
+    return view('admin');
 });
+
+Route::get('/medico', function () {
+    return view('medico');
+});
+
 Route::get('/usuarios/{id}', function ($id) {
     return "Mostrando detalle del usuario: {$id}";
 })->where('id', '[0-9]+');
