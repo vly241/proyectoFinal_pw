@@ -8,14 +8,16 @@ use Illuminate\Support\Facades\DB;
 class userController extends Controller
 {
     public function index(){
-        $users = DB::table('users')->get();
+       $estudiantes = DB::table('estudiantes')->get();
 
-        return view('historia.estudiante',compact('users'));
+        return view('historia.estudiante',compact('estudiantes'));
     }
 
-    public function show($id){
-        return view('historia.show',compact('id'));
-}
+    public function show($id)
+    {
+        $estudiantes = DB::table('estudiantes')->get();
+        return view('historial.show', compact('estudiantes'));
+    }
 
 public  function create(){
         return 'Crear';

@@ -16,20 +16,12 @@
             <div class="page-container" >
                 <!-- MAIN CONTENT-->
 
-                <h2>Estudiantes</h2>
-                <p>estudiantes cotecnova:</p>
+                <h1>Usuario #{{ $est->id }}</h1>
 
-                <ul>
-                    @forelse($estudiantes as $est)
 
-                       <li>{{$est->identificacion}}, {{$est->nombre}}
-                           <a href="{{url('/user/.$est->id')}}">detalle</a>
-                       </li>
-                    @empty
-                        <li>no hay nada</li>
-                    @endforelse
-                </ul>
-
+                <p>
+                    <a href="/">Regresar al listado de usuarios</a>
+                </p>
 
 
                 <!-- END MAIN CONTENT-->
