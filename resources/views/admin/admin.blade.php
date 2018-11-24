@@ -32,7 +32,7 @@
     <!-- END PAGE CONTAINER-->
 </div>
 
-</div>
+
 
 <!-- JS-->
 @include('js')

@@ -1,23 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
+        <div class="page-wrapper">
+            <!-- HEADER MOBILE-->
+            @include('admin.header_admin_movil');
+            <!-- END HEADER MOBILE-->
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+            <!-- MENU SIDEBAR-->
+            @include('admin.sidebar_admin');
+            <!-- END MENU SIDEBAR-->
 
-                        You are logged in!
-                    </div>
-                </div>
+
+            <div class="page-container" >
+                <!-- MAIN CONTENT-->
+
+                <img src="img/bandera.png" alt="cotecnova" height="800" width="1000">
+
+
+
+                <!-- END MAIN CONTENT-->
             </div>
+
         </div>
     </div>
 @endsection

@@ -10,39 +10,24 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="active has-sub">
-                    <a class="js-arrow" href="#">
+                    <a  href="/">
                         <i class="fas fa-user"></i>estudiantes</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="/">crear estudiantes</a>
-                        </li>
-                        <li>
-                            <a href="/">editar estudiantes</a>
-                        </li>
-                        <li>
-                            <a href="/">ver estudiante</a>
-                        </li>
-                        <li>
-                            <a href="/">eliminar estudiante</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-table"></i>Agenda</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="/">Calendario</a>
-                        </li>
 
-                    </ul>
                 </li>
                 <li>
-                    <a href="/">
-                        <i class="fas fa-copy"></i>Agendar cita</a>
+                    <a href="#">
+                        <i class="fas fa-book"></i>Agenda</a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="#">
+                        <i class="fas fa-calendar-times"></i>Calendario</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-paper-plane"></i>Agendar cita</a>
+                </li>
+                <li>
+                    <a href="#">
                         <i ><img src="img/cerrar.png" height="25" width="25"></i>cerrar sesion</a>
 
                 </li>
