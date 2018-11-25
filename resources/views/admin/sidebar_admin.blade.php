@@ -10,7 +10,7 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="active has-sub">
-                    <a  href="/">
+                    <a  href="{{route('est.index')}}">
                         <i class="fas fa-user"></i>estudiantes</a>
 
                 </li>

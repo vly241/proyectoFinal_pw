@@ -15,10 +15,11 @@ Auth::routes();
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@index');
-Route::get('/user', 'userController@index');
-Route::get('/user/{id}', 'userController@show')
-    ->where('id', '[0-9]+')
-    ->name('historia.show');
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('/estudiantes','EstudiantesController@index')->name('est.index');
+
 
 

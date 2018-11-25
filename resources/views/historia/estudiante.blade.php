@@ -19,17 +19,51 @@
                 <h2>Estudiantes</h2>
                 <p>estudiantes cotecnova:</p>
 
-                <ul>
+                <h1>Listado estudiantes:</h1>
+                <form action="/" class="form-inline" method="get">
+                    <input type="text" class="form-control" name="buscar" value="{{ isset($buscar) ? $buscar : '' }}" placeholder="ingrese dato">
+                    <input type="submit" value="Buscar" class="btn btn-success">
+                </form>
+                <br>
+                <a href="/" class="btn btn-primary">Crear Nuevo estudiante</a>
+
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>identificacion</th>
+                        <th>Nombre</th>
+                        <th>apellido</th>
+                        <th>edad</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     @forelse($estudiantes as $est)
+                        <tr>
+                            <td>
+                                {{ $est->identificacion}}
+                            </td>
+                            <td>
+                                {{ $est->nombre}}
+                            </td>
+                            <td>
+                                {{ $est->apellidos}}
+                            </td>
+                            <td>
+                                {{ $est->edad}}
+                            </td>
+                            <td>
+                                <a href="/" class="btn btn-primary">Ver</a>
+                                <a href="/" class="btn btn-warning">Editar</a>
 
-                       <li>{{$est->identificacion}}, {{$est->nombre}}
-                           <a href="{{url('/user/.$est->id')}}">detalle</a>
-                       </li>
+                            </td>
+                        </tr>
                     @empty
-                        <li>no hay nada</li>
+                        <div class="alert alert-info">
+                            <p>Tu busquedad no produjo resultados</p>
+                        </div>
                     @endforelse
-                </ul>
-
+                    </tbody>
+                </table>
 
 
                 <!-- END MAIN CONTENT-->
