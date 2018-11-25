@@ -20,13 +20,15 @@
                 <p>estudiantes cotecnova:</p>
 
                 <h1>Listado estudiantes:</h1>
-                <form action="/" class="form-inline" method="get">
-                    <input type="text" class="form-control" name="buscar" value="{{ isset($buscar) ? $buscar : '' }}" placeholder="ingrese dato">
-                    <input type="submit" value="Buscar" class="btn btn-success">
-                </form>
-                <br>
-                <a href="/" class="btn btn-primary">Crear Nuevo estudiante</a>
+                {{--<form action="{{route('est.index')}}" class="form-inline" method="get">
+                <input type="text" class="form-control" name="buscar" value="{{ isset($buscar) ? $buscar : '' }}" placeholder="ingrese dato">
+                <input type="submit" value="Buscar" class="btn btn-success">
+                </form>--}}
 
+                <br>
+
+                <a href="/" class="btn btn-primary">Crear Nuevo estudiante</a>
+                <br>
                 <table id="example" class="display" style="width:100%">
                     <thead>
                     <tr>
@@ -52,7 +54,7 @@
                                 {{ $est->edad}}
                             </td>
                             <td>
-                                <a href="/" class="btn btn-primary">Ver</a>
+                                <a href="{{route('est.show', $est->id)}}" class="btn btn-primary">Ver</a>
                                 <a href="/" class="btn btn-warning">Editar</a>
 
                             </td>

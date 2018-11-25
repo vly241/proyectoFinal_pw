@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\estudiantes;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class EstudiantesController extends Controller
 {
@@ -16,7 +17,7 @@ class EstudiantesController extends Controller
     {
         if($request->input('buscar')){
             $buscar = $request->input('buscar');
-            $estudiantes = estudiante::where('nombre', 'LIKE','%'.$buscar.'%')->get();
+            $estudiantes = estudiantes::where('nombre', 'LIKE','%'.$buscar.'%')->get();
             return View('historia.estudiantes', compact('estudiantes', 'buscar'));
         }
         $estudiantes = estudiantes::all();
@@ -30,7 +31,7 @@ class EstudiantesController extends Controller
      */
     public function create()
     {
-        //
+        return View('historia.crear');
     }
 
     /**
@@ -50,10 +51,12 @@ class EstudiantesController extends Controller
      * @param  \App\estudiantes  $estudiantes
      * @return \Illuminate\Http\Response
      */
-    public function show(estudiantes $estudiantes)
+    public function show($id)
     {
-        //
+        $estudiantes = estudiantes::findOrFail($id); //select * from productos where id= $id
+        return View('historia.show', compact('estudiantes'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

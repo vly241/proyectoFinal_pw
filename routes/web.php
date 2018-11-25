@@ -21,5 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/estudiantes','EstudiantesController@index')->name('est.index');
 
+Route::get('/estudiantes/{id}','EstudiantesController@show')
+    ->where('id', '[0-9]+')
+    ->name('est.show');
 
+
+Route::get('/estudiantes/create','EstudiantesController@create')->name('est.create');
 
