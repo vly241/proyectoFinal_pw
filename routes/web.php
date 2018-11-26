@@ -28,3 +28,4 @@ Route::get('/estudiantes/{id}','EstudiantesController@show')
 
 Route::get('/estudiantes/create','EstudiantesController@create')->name('est.create');
 
+Route::get('/estudiantes/medico','MedicoController@index')->name('medico');

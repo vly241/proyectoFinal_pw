@@ -16,13 +16,18 @@ class DatabaseSeeder extends Seeder
         $this->truncateTable([
             'users',
             'estudiantes',
-            'antecedentes_familiares'
+            'antecedentes_familiares',
+            'medicos',
+
         ]);
 
         // $this->call(UsersTableSeeder::class);
              $this->call(estudiantesTableSeeder::class);
              $this->call(userTableSeeder::class);
              $this->call(antecedentes_familiaresTableSeeder::class);
+             $this->call(medicoTableSeeder::class);
+             $this->call(antecedentes_familiaresTableSeeder::class);
+
     }
 
     //forma dinamica de eliminacion datos tablas
