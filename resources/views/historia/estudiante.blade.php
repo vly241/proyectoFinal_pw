@@ -27,7 +27,7 @@
 
                 <br>
 
-                <a href="/" class="btn btn-primary">Crear Nuevo estudiante</a>
+                <a href="{{route('est.create')}}" class="btn btn-primary">Crear Nuevo estudiante</a>
                 <br>
                 <table id="example" class="display" style="width:100%">
                     <thead>

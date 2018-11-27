@@ -31,7 +31,8 @@ class EstudiantesController extends Controller
      */
     public function create()
     {
-        return View('historia.crear');
+        $estudiantes = estudiantes::all();
+        return View('historia.create', compact('estudiantes'));
     }
 
     /**
@@ -40,9 +41,66 @@ class EstudiantesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+
+        $data = request()->validate([
+            'identificacion'=> '',
+            'nombre' => 'required',
+            'apellidos'=>'',
+            'origen'=>'',
+            'telefono'=>'',
+            'direccion'=>'',
+            'escolaridad'=>'',
+            'ocupacion'=>'',
+            'edad'=>'',
+            'email'=>['required','email','unique:estudiantes,email'],
+            'foto'=>'',
+        ],[
+            'nombre.required' => 'el campo nombre es necesario'
+        ]);
+
+          estudiantes::create([
+         'identificacion'=> $data['identificacion'],
+         'nombre'=>$data['nombre'],
+         'apellidos'=>$data['apellidos'],
+         'origen'=>$data['origen'],
+         'telefono'=>$data['telefono'],
+         'direccion'=>$data['direccion'],
+         'escolaridad'=>$data['escolaridad'],
+         'ocupacion'=>$data['ocupacion'],
+         'edad'=>$data['edad'],
+         'email'=>$data['email'],
+         'foto'=>$data['foto'],
+
+
+     ]);
+     return redirect()->route('est.index');
+
+
+      /*  $nombre = 'img/default.png';
+
+        if($request->hasFile('foto')){
+            $archivo = $request->file('foto');
+            $nombre = 'img/'.time().'-'.$archivo->getClientOriginalName();
+            $archivo->move(public_path().'/img/',$nombre);
+        }
+
+        $estudiantes = new estudiantes();
+        $estudiantes->identificacion = $request->input('identificacion');
+        $estudiantes->nombre = $request->input('nombre');
+        $estudiantes->apellidos = $request->input('apellidos');
+        $estudiantes-> origen= $request->input('origen');
+        $estudiantes-> telefono= $request->input('telefono');
+        $estudiantes-> direccion= $request->input('direccion');
+        $estudiantes->escolaridad = $request->input('escolaridad');
+        $estudiantes-> ocupacion= $request->input('ocupacion');
+        $estudiantes-> edad= $request->input('edad');
+        $estudiantes->email = $request->input('email');
+
+        $estudiantes->foto = $nombre;
+        $estudiantes->save();
+        return redirect(route('est.index'));*/
     }
 
     /**

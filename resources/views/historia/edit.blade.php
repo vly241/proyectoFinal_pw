@@ -15,7 +15,7 @@
             @include('admin.adminEstudiante')
 
 
-                 <!-- END MAIN CONTENT-->
+            <!-- END MAIN CONTENT-->
             </div>
         </div>
     </div>

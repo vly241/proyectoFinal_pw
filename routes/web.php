@@ -26,6 +26,8 @@ Route::get('/estudiantes/{id}','EstudiantesController@show')
     ->name('est.show');
 
 
-Route::get('/estudiantes/create','EstudiantesController@create')->name('est.create');
+Route::get('/estudiantes/nuevo','EstudiantesController@create')->name('est.create');
+
+Route::post('/estudiantes/crear','EstudiantesController@store');
 
 Route::get('/estudiantes/medico','MedicoController@index')->name('medico');

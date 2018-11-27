@@ -2,7 +2,7 @@
     <div class="logo">
         <a href="#">
 
-            <img src="img/cotec.png" alt="Historial Medico Cotecnova"  width="85" height="105"/>
+            <img src="{{asset('img/cotec.png')}}" alt="Historial Medico Cotecnova"  width="85" height="105"/>
 
         </a>
     </div>
@@ -28,7 +28,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i ><img src="img/cerrar.png" height="25" width="25"></i>cerrar sesion</a>
+                        <i ><img src="{{asset('img/cerrar.png')}}" height="25" width="25"></i>cerrar sesion</a>
 
                 </li>
             </ul>

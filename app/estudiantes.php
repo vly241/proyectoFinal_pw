@@ -10,6 +10,6 @@ class estudiantes extends Model
    protected $table = 'estudiantes';
 
     protected $fillable = [
-        'identificacion', 'nombre'
+        'identificacion', 'nombre','apellidos','origen','telefono','direccion','escolaridad','ocupacion','edad','email','foto'
     ];
 }
