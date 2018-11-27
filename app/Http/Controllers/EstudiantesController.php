@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\estudiantes;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class EstudiantesController extends Controller
@@ -57,7 +58,7 @@ class EstudiantesController extends Controller
             'email'=>['required','email','unique:estudiantes,email'],
             'foto'=>'',
         ],[
-            'nombre.required' => 'el campo nombre es necesario'
+            'nombre.required' => 'el campo  es necesario'
         ]);
 
           estudiantes::create([
@@ -85,19 +86,6 @@ class EstudiantesController extends Controller
             $nombre = 'img/'.time().'-'.$archivo->getClientOriginalName();
             $archivo->move(public_path().'/img/',$nombre);
         }
-
-        $estudiantes = new estudiantes();
-        $estudiantes->identificacion = $request->input('identificacion');
-        $estudiantes->nombre = $request->input('nombre');
-        $estudiantes->apellidos = $request->input('apellidos');
-        $estudiantes-> origen= $request->input('origen');
-        $estudiantes-> telefono= $request->input('telefono');
-        $estudiantes-> direccion= $request->input('direccion');
-        $estudiantes->escolaridad = $request->input('escolaridad');
-        $estudiantes-> ocupacion= $request->input('ocupacion');
-        $estudiantes-> edad= $request->input('edad');
-        $estudiantes->email = $request->input('email');
-
         $estudiantes->foto = $nombre;
         $estudiantes->save();
         return redirect(route('est.index'));*/
@@ -115,7 +103,10 @@ class EstudiantesController extends Controller
         return View('historia.show', compact('estudiantes'));
     }
 
-
+public function showd($id){
+    $estudiantes = estudiantes::findOrFail($id); //select * from productos where id= $id
+    return View('estAdmin.datosGenerales', compact('estudiantes'));
+}
     /**
      * Show the form for editing the specified resource.
      *
@@ -124,7 +115,7 @@ class EstudiantesController extends Controller
      */
     public function edit(estudiantes $estudiantes)
     {
-        //
+        return view('historia.edit',['estudiantes'=>$estudiantes]);
     }
 
     /**
@@ -136,7 +127,30 @@ class EstudiantesController extends Controller
      */
     public function update(Request $request, estudiantes $estudiantes)
     {
-        //
+       /* si la tabla contiene una contraseña ( encriptada)
+       $data = request()->all();
+        $data['password']=bcrypt($data['password']);
+        $estudiantes->update($data);*/
+
+       $data = request()->validate([
+           'identificacion'=> '',
+           'nombre'=>'required',
+           'apellidos'=>'',
+           'origen'=>'',
+           'telefono'=>'',
+           'direccion'=>'',
+           'escolaridad'=>'',
+           'ocupacion'=>'',
+           'edad'=>'',
+           'email' => ['required', 'email', Rule::unique('users')->ignore($estudiantes->id)],
+           'foto'=>'',
+
+       ]);
+
+
+
+        $estudiantes->update($data);
+        return redirect()->route('est.show',['estudiante'=>$estudiantes]);
     }
 
     /**
@@ -147,6 +161,8 @@ class EstudiantesController extends Controller
      */
     public function destroy(estudiantes $estudiantes)
     {
-        //
+      $estudiantes->delete();
+
+        return redirect(route('est.index'));
     }
 }

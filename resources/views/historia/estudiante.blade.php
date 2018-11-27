@@ -54,9 +54,13 @@
                                 {{ $est->edad}}
                             </td>
                             <td>
-                                <a href="{{route('est.show', $est->id)}}" class="btn btn-primary">Ver</a>
-                                <a href="/" class="btn btn-warning">Editar</a>
-
+                                <a href="{{route('est.show',['id'=>$est->id]) }}" class="fas fa-eye"></a>
+                                <a href="{{route('est.edit',['id'=>$est->id])}}" class="btn btn-warning" class="btn btn-primary">editar</a>
+                                <form action="{{route('est.destroy', ['id'=>$est->id])}}" method="POST">
+                                    {{ method_field('DELETE') }}
+                                    @csrf
+                                    <input type="submit" class="btn btn-danger"  value="eliminar">
+                                </form>
                             </td>
                         </tr>
                     @empty
