@@ -9,6 +9,11 @@ use Illuminate\View\View;
 
 class EstudiantesController extends Controller
 {
+
+    public function __construct()
+{
+    $this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *
@@ -19,10 +24,10 @@ class EstudiantesController extends Controller
         if($request->input('buscar')){
             $buscar = $request->input('buscar');
             $estudiantes = estudiantes::where('nombre', 'LIKE','%'.$buscar.'%')->get();
-            return View('historia.estudiantes', compact('estudiantes', 'buscar'));
+            return View('estudiante.estudiante', compact('estudiantes', 'buscar'));
         }
         $estudiantes = estudiantes::all();
-        return View('historia.estudiante', compact('estudiantes'));
+        return View('estudiante.estudiante', compact('estudiantes'));
     }
 
     /**
@@ -33,7 +38,7 @@ class EstudiantesController extends Controller
     public function create()
     {
         $estudiantes = estudiantes::all();
-        return View('historia.create', compact('estudiantes'));
+        return View('estudiante.create', compact('estudiantes'));
     }
 
     /**
@@ -100,7 +105,7 @@ class EstudiantesController extends Controller
     public function show($id)
     {
         $estudiantes = estudiantes::findOrFail($id); //select * from productos where id= $id
-        return View('historia.show', compact('estudiantes'));
+        return View('estudiante.show', compact('estudiantes'));
     }
 
 public function showd($id){
@@ -115,7 +120,7 @@ public function showd($id){
      */
     public function edit(estudiantes $estudiantes)
     {
-        return view('historia.edit',['estudiantes'=>$estudiantes]);
+        return view('estudiante.edit',['estudiantes'=>$estudiantes]);
     }
 
     /**

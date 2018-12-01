@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'antecedentes_familiares',
             'medicos',
 
+
         ]);
 
         // $this->call(UsersTableSeeder::class);
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
              $this->call(antecedentes_familiaresTableSeeder::class);
              $this->call(medicoTableSeeder::class);
              $this->call(antecedentes_familiaresTableSeeder::class);
+             $this->call(RoleTableSeeder::class);
 
     }
 

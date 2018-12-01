@@ -47,6 +47,9 @@
     <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 
+    <!--CSS datatables-->
+    <link rel="stylesheet" href="{{asset('vendor/DataTables/datatables.min.css')}}">
+
     <!-- Main CSS-->
     <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
 </head>

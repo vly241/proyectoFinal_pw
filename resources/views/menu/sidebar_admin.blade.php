@@ -22,10 +22,18 @@
                     <a href="#">
                         <i class="fas fa-calendar-times"></i>Calendario</a>
                 </li>
+
+                @if(Auth::User()->role_id=='1')
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>Agendar cita</a>
                 </li>
+                 @else
+                    <a href="#">user</a>
+                @endif
+
+
+
                 <li>
                     <a href="#">
                         <i ><img src="{{asset('img/cerrar.png')}}" height="25" width="25"></i>cerrar sesion</a>

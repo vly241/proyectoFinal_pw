@@ -14,9 +14,9 @@ class antecedentes_personalesTableSeeder extends Seeder
     public function run()
     {
         $a_p = estudiantes::where('identificacion','1112792873')->values('id');
-     antecedentes_personales::create([
-            'id_est'=>$a_p,
+        antecedentes_personales::create([
 
+            'id_est'=>$a_p,
             'hospitalarios'=>'no' ,
             'traumaticos'=>'no',
             'psiquiatricos'=>'no',

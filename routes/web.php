@@ -38,7 +38,7 @@ Route::delete('/estudiantes/{estudiantes}','EstudiantesController@destroy')->nam
 
 Route::get('/estudiantes/medico','MedicoController@index')->name('medico');
 
-Route::get('/estudiantes/{id}/datosGenerales', 'EstudiantesController@showd')->name('est.dg');
+
 
 //opcion 2 enrutamiento
 //Route::resource()

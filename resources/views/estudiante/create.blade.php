@@ -5,11 +5,11 @@
     <div class="container">
         <div class="page-wrapper">
             <!-- HEADER MOBILE-->
-            @include('admin.header_admin_movil');
+            @include('menu.header_admin_movil');
             <!-- END HEADER MOBILE-->
 
             <!-- MENU SIDEBAR-->
-            @include('admin.sidebar_admin');
+            @include('menu.sidebar_admin');
             <!-- END MENU SIDEBAR-->
 
 

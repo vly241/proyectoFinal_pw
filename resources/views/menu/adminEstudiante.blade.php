@@ -10,7 +10,9 @@
 
 
 <nav class="nav nav-pills nav-fill">
-    <a class="nav-item nav-link active" href="#">Datos Generales</a>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Datos Generales</a>
+    </li>
     <a class="nav-item nav-link active" href="#">Historial Médico</a>
     <a class="nav-item nav-link active" href="#">Diagnóstico</a>
     <a class="nav-item nav-link active" href="#">Anexos</a>
