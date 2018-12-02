@@ -1,7 +1,7 @@
 
 
 <br>
-<img src="{{asset('img/avatar2.png')}}" align="left">
+<img src="{{asset($estudiantes->foto)}}" align="left" width="30%" href="30%">
 <h1 align="center">estudiante {{$estudiantes->nombre}}</h1><br>
 <h3 align="center">{{$estudiantes->apellidos}}</h3><br>
 <h4 align="center"> CC: {{$estudiantes->identificacion}}</h4><br>

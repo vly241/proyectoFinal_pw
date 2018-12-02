@@ -25,7 +25,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('ocupacion');
             $table->string('edad');
             $table->string('email')->unique();
-            $table->string('foto')->default('img/default.png');
+            $table->string('foto')->default('img/default.png')->nullable();
 
             $table->timestamps();
         });

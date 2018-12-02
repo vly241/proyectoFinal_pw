@@ -20,14 +20,18 @@ class DatabaseSeeder extends Seeder
             'medicos',
 
 
+
+
         ]);
 
         // $this->call(UsersTableSeeder::class);
+
              $this->call(estudiantesTableSeeder::class);
              $this->call(userTableSeeder::class);
+
              $this->call(antecedentes_familiaresTableSeeder::class);
              $this->call(medicoTableSeeder::class);
-             $this->call(antecedentes_familiaresTableSeeder::class);
+
              $this->call(RoleTableSeeder::class);
 
     }

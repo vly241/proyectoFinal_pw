@@ -13,14 +13,18 @@
             <div class="page-container" >
                 <!-- MAIN CONTENT-->
             @include('menu.adminEstudiante')
+
                 <br><br>
                 <nav class="nav nav-pills nav-fill">
 
-                    <a class="nav-item nav-link active" href="#">antecedentes personales</a>
+                    <a class="nav-item nav-link active" href="{{route('est.dp',['id'=>$estudiantes->id]) }}">antecedentes personales</a>
                     <a class="nav-item nav-link active" href="#">antecedentes familiares</a>
 
                 </nav>
+                <br>
+                <a href="{{route('est.edit',['id'=>$estudiantes->id])}}" class="btn btn-warning" class="btn btn-primary">editar</a>
                 <br><br>
+
                 <div class="card">
                     <div class="card-body">
                        <h4>escolaridad:  {{$estudiantes->escolaridad}}</h4>
@@ -55,11 +59,11 @@
                     <div class="card-body">
                         <h4>email:  {{$estudiantes->email}}</h4>
                     </div>
-
+                </div>
                  <!-- END MAIN CONTENT-->
-            </div>
+
 
         </div>
-
+        </div>
     </div>
 @endsection

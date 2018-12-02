@@ -18,8 +18,8 @@ class CreateAntecedentesFamiliaresTable extends Migration
             $table->unsignedInteger('id_est')->nullable();
             $table->foreign('id_est')->references('id')->on('estudiantes');
 
-            $table->string('descripcion');
-            $table->string('pariente');
+            $table->string('descripcion')->nullable();
+            $table->string('pariente')->nullable();
             $table->timestamps();
         });
     }

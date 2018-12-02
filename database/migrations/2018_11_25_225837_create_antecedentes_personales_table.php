@@ -15,7 +15,7 @@ class CreateAntecedentesPersonalesTable extends Migration
     {
         Schema::create('antecedentes_personales', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_est');
+            $table->unsignedInteger('id_est')->nullable();
             $table->foreign('id_est')->references('id')->on('estudiantes');
 
 

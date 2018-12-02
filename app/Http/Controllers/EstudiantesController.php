@@ -104,14 +104,10 @@ class EstudiantesController extends Controller
      */
     public function show($id)
     {
-        $estudiantes = estudiantes::findOrFail($id); //select * from productos where id= $id
+        $estudiantes = estudiantes::findOrFail($id); //select * from estudiantes where id= $id
         return View('estudiante.show', compact('estudiantes'));
     }
 
-public function showd($id){
-    $estudiantes = estudiantes::findOrFail($id); //select * from productos where id= $id
-    return View('estAdmin.datosGenerales', compact('estudiantes'));
-}
     /**
      * Show the form for editing the specified resource.
      *
@@ -170,4 +166,7 @@ public function showd($id){
 
         return redirect(route('est.index'));
     }
+
+
+
 }

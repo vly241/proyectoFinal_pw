@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\antecedentes_personales;
+use App\estudiantes;
 use Illuminate\Http\Request;
 
 class AntecedentesPersonalesController extends Controller
@@ -12,9 +13,14 @@ class AntecedentesPersonalesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $estudiantes = estudiantes::findOrFail($id);//select * from estudiantes where id= $id
+
+
+        $ap = antecedentes_personales::where('id_est', $id)->first();//select * from where id_est = $id
+        return View('estudiante.dp', compact('ap','estudiantes'));
+
     }
 
     /**
@@ -44,9 +50,10 @@ class AntecedentesPersonalesController extends Controller
      * @param  \App\antecedentes_personales  $antecedentes_personales
      * @return \Illuminate\Http\Response
      */
-    public function show(antecedentes_personales $antecedentes_personales)
+    public function show($id_est)
     {
-        //
+       // $estudiantes = estudiantes::findOrFail($id); //select * from estudiantes where id= $id
+
     }
 
     /**
@@ -57,7 +64,8 @@ class AntecedentesPersonalesController extends Controller
      */
     public function edit(antecedentes_personales $antecedentes_personales)
     {
-        //
+
+        return view('estudiante.edit_dp',['antecedentes_personales'=>$antecedentes_personales]);
     }
 
     /**
@@ -69,7 +77,29 @@ class AntecedentesPersonalesController extends Controller
      */
     public function update(Request $request, antecedentes_personales $antecedentes_personales)
     {
-        //
+        $data = request()->validate([
+            'id_est'=> $antecedentes_personales,
+            'hospitalarios'=>'',
+            'traumaticos'=> '',
+            'psiquiatricos'=> '',
+            'transfusiones'=> '',
+            'farmacologicos'=> '',
+            'toxicos'=> '',
+            'quirurgicos'=> '',
+            'patologicos'=> '',
+            'gine_menarquia'=> '',
+            'gine_ciclos'=> '',
+            'gine_FUP'=> '',
+            'gine_citologicos'=> '',
+            'gine_planificacion'=> '',
+
+
+        ]);
+
+
+
+        $antecedentes_personales->update($data);
+        return redirect()->route('est.dp',['antecedentes_personales'=>$antecedentes_personales]);
     }
 
     /**
