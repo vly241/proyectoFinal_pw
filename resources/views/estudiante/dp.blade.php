@@ -17,8 +17,8 @@
                 <br><br>
                 <nav class="nav nav-pills nav-fill">
 
-                    <a class="nav-item nav-link active" href="#">antecedentes personales</a>
-                    <a class="nav-item nav-link active" href="#">antecedentes familiares</a>
+                    <a class="nav-item nav-link active" href="{{route('est.dp',['id'=>$estudiantes->id]) }}">antecedentes personales</a>
+                    <a class="nav-item nav-link active" href="{{route('est.df',['id'=>$estudiantes->id]) }}">antecedentes familiares</a>
 
                 </nav>
                 <br>

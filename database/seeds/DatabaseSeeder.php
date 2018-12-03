@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             'estudiantes',
             'antecedentes_familiares',
             'medicos',
+            'consultas'
 
 
 
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
              $this->call(medicoTableSeeder::class);
 
              $this->call(RoleTableSeeder::class);
+             $this->call(consultaTableSeeder::class);
 
     }
 

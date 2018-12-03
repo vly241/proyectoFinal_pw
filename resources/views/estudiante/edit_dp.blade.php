@@ -2,8 +2,7 @@
 @section('content')
     <div class="container">
         <div class="page-wrapper">
-            <!-- HEADER MOBILE-->
-            @include('menu.header_admin_movil');
+
             <!-- END HEADER MOBILE-->
 
             <!-- MENU SIDEBAR-->

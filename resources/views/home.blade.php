@@ -4,12 +4,11 @@
 
     <div class="container">
         <div class="page-wrapper">
-            <!-- HEADER MOBILE-->
-            @include('menu.header_admin_movil');
+
             <!-- END HEADER MOBILE-->
 
             <!-- MENU SIDEBAR-->
-            @include('menu.sidebar_admin');
+            @include('menu.sidebar_admin')
             <!-- END MENU SIDEBAR-->
 
 

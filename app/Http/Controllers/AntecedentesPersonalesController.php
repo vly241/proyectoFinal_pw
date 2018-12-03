@@ -23,45 +23,7 @@ class AntecedentesPersonalesController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\antecedentes_personales  $antecedentes_personales
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id_est)
-    {
-       // $estudiantes = estudiantes::findOrFail($id); //select * from estudiantes where id= $id
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\antecedentes_personales  $antecedentes_personales
-     * @return \Illuminate\Http\Response
-     */
     public function edit(antecedentes_personales $antecedentes_personales)
     {
 
@@ -75,7 +37,7 @@ class AntecedentesPersonalesController extends Controller
      * @param  \App\antecedentes_personales  $antecedentes_personales
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, antecedentes_personales $antecedentes_personales)
+    public function update(antecedentes_personales $antecedentes_personales)
     {
         $data = request()->validate([
             'id_est'=> $antecedentes_personales,
@@ -108,8 +70,5 @@ class AntecedentesPersonalesController extends Controller
      * @param  \App\antecedentes_personales  $antecedentes_personales
      * @return \Illuminate\Http\Response
      */
-    public function destroy(antecedentes_personales $antecedentes_personales)
-    {
-        //
-    }
+
 }

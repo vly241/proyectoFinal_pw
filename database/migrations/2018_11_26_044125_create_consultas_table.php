@@ -17,10 +17,8 @@ class CreateConsultasTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_est');
             $table->foreign('id_est')->references('id')->on('estudiantes');
-
-            $table->unsignedInteger('id_medico');
-            $table->foreign('id_medico')->references('id')->on('medicos');
-
+            $table->string('dia');
+            $table->string('hora');
             $table->string('motivo_consulta');
             $table->timestamps();
         });

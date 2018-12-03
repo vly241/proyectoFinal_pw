@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\antecedentes_familiares;
+use App\estudiantes;
 use Illuminate\Http\Request;
 
 class AntecedentesFamiliaresController extends Controller
@@ -12,9 +13,12 @@ class AntecedentesFamiliaresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $estudiantes = estudiantes::findOrFail($id);//select * from estudiantes where id= $id
+
+        $af = antecedentes_familiares::all()->where('id_est',$id);//select * from  antecedentes_familiares where id_est = $id
+        return View('estudiante.df', compact('af','estudiantes'));
     }
 
     /**
@@ -22,9 +26,10 @@ class AntecedentesFamiliaresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(antecedentes_familiares $antecedentes_familiares)
     {
-        //
+
+        return view('estudiante.df_crear',['antecedentes_familiares'=>$antecedentes_familiares]);
     }
 
     /**
@@ -33,9 +38,29 @@ class AntecedentesFamiliaresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(antecedentes_familiares $antecedentes_familiares)
     {
-        //
+
+
+        $data = request()->validate([
+            'id_est'=>$antecedentes_familiares,
+            'descripcion'=>'',
+            'pariente'=> '',
+
+
+
+        ]);
+
+
+
+        estudiantes::create([
+            'id_est'=> $data['id_est'],
+            'descripcion'=>$data['descripcion'],
+            'pariente'=>$data['pariente'],
+
+
+        ]);
+        return redirect()->route('est.df');
     }
 
     /**
@@ -57,7 +82,7 @@ class AntecedentesFamiliaresController extends Controller
      */
     public function edit(antecedentes_familiares $antecedentes_familiares)
     {
-        //
+        return view('estudiante.df_edit',['antecedentes_familiares'=>$antecedentes_familiares]);
     }
 
     /**
@@ -69,7 +94,19 @@ class AntecedentesFamiliaresController extends Controller
      */
     public function update(Request $request, antecedentes_familiares $antecedentes_familiares)
     {
-        //
+        $data = request()->validate([
+            'id_est'=> $antecedentes_familiares,
+            'descripcion'=>'',
+            'pariente'=> '',
+
+
+
+        ]);
+
+
+
+        $antecedentes_familiares->update($data);
+        return redirect()->route('est.df',['antecedentes_familiares'=>$antecedentes_familiares]);
     }
 
     /**

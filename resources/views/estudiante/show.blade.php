@@ -2,12 +2,11 @@
 @section('content')
     <div class="container">
         <div class="page-wrapper">
-            <!-- HEADER MOBILE-->
-            @include('menu.header_admin_movil');
+
             <!-- END HEADER MOBILE-->
 
             <!-- MENU SIDEBAR-->
-            @include('menu.sidebar_admin');
+            @include('menu.sidebar_admin')
             <!-- END MENU SIDEBAR-->
 
             <div class="page-container" >
@@ -18,12 +17,14 @@
                 <nav class="nav nav-pills nav-fill">
 
                     <a class="nav-item nav-link active" href="{{route('est.dp',['id'=>$estudiantes->id]) }}">antecedentes personales</a>
-                    <a class="nav-item nav-link active" href="#">antecedentes familiares</a>
+                    <a class="nav-item nav-link active" href="{{route('est.df',['id'=>$estudiantes->id]) }}">antecedentes familiares</a>
 
                 </nav>
                 <br>
+                @if(Auth::User()->role_id=='1')
                 <a href="{{route('est.edit',['id'=>$estudiantes->id])}}" class="btn btn-warning" class="btn btn-primary">editar</a>
                 <br><br>
+                @endif
 
                 <div class="card">
                     <div class="card-body">

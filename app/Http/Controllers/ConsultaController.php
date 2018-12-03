@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\consulta;
+use App\estudiantes;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
@@ -12,9 +13,16 @@ class ConsultaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->input('buscar')){
+            $buscar = $request->input('buscar');
+            $estudiantes = estudiantes::where('nombre', 'LIKE','%'.$buscar.'%')->get();
+            return View('consulta.consulta', compact('estudiantes', 'buscar'));
+        }
+        $consulta = consulta::all();
+        $estudiante = estudiantes::all();
+        return View('consulta.consulta', compact('consulta','estudiante'));
     }
 
     /**
