@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\examen_fisico;
+use App\estudiantes;
 use Illuminate\Http\Request;
 
 class ExamenFisicoController extends Controller
@@ -12,9 +13,13 @@ class ExamenFisicoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $estudiantes = estudiantes::findOrFail($id);//select * from estudiantes where id= $id
+
+
+        $ef = examen_fisico::all()->where('id_est',$id);//select * from where id_est = $id
+        return View('estudiante.historialm_index', compact('ef','estudiantes'));
     }
 
     /**
@@ -44,9 +49,10 @@ class ExamenFisicoController extends Controller
      * @param  \App\examen_fisico  $examen_fisico
      * @return \Illuminate\Http\Response
      */
-    public function show(examen_fisico $examen_fisico)
+    public function show($id)
     {
-        //
+        $ef = examen_fisico::findOrFail($id); //select * from estudiantes where id= $id
+        return View('estudiante.historialm_show', compact('ef'));
     }
 
     /**

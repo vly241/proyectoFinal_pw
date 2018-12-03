@@ -11,9 +11,9 @@
 
 <nav class="nav nav-pills nav-fill">
     <li class="nav-item">
-        <a class="nav-link disabled" href="#">Datos Generales</a>
+        <a class="nav-link disabled" href="{{route('est.show',['id'=>$estudiantes->id])}}">Datos Generales</a>
     </li>
-    <a class="nav-item nav-link active" href="#">Historial Médico</a>
+    <a class="nav-item nav-link active" href="{{route('hm.index',['id'=>$estudiantes->id])}}">Historial Médico</a>
     <a class="nav-item nav-link active" href="#">Diagnóstico</a>
     <a class="nav-item nav-link active" href="#">Anexos</a>
 </nav>

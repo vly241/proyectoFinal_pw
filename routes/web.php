@@ -47,6 +47,9 @@ Route::post('/estudiantes/{antecedentes_familiares}/df','AntecedentesFamiliaresC
 
 
 Route::get('/estudiantes/{id}/historialMedico','ExamenFisicoController@index')->name('hm.index');
+Route::get('/estudiantes/historialMedico/{id}','ExamenFisicoController@show')
+    ->where('id', '[0-9]+')
+    ->name('hm.show');
 
 Route::get('/consultas','ConsultaController@index')->name('cons.index');
 

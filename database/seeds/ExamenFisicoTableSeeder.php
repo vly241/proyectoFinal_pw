@@ -1,0 +1,192 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use App\examen_fisico;
+use App\estudiantes;
+class ExamenFisicoTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $id_est = estudiantes::where('identificacion','1112792871')->value('id');
+      examen_fisico::create([
+            'id_est'=>$id_est,
+            'p_cadera'=>'1',
+          'p_cintura'=>'',
+          'pulso'=>'',
+          'cabeza'=>'',
+          'ojos'=>'',
+          'agudeza_visual'=>'',
+          'fondo_ojo'=>'',
+          'oidos'=>'',
+          'nariz'=>'',
+          'boca'=>'',
+          'cuello'=>'',
+          'cardiopulmonar'=>'1',
+          'abdomen'=>'',
+          'piel'=>'',
+          'genitales'=>'',
+          'extrem_columna'=>'',
+          'neurologicos_pares'=>'',
+          'motor_cord_fuerza'=>'',
+          'motor_cord_tono'=>'',
+          'sensib_supe_conservado'=>'',
+          'sensib_prof_conservada'=>'',
+          'sensib_discriminativa'=>'',
+          'cutaneos'=>'',
+          'reflejos'=>'',
+          'miotacticos'=>'',
+          'patologicos'=>'',
+          'peso'=>'',
+          'talla'=>'',
+          'IMC'=>'',
+          'indice_cc'=>'',
+
+
+        ]);
+          $id_est2 = estudiantes::where('identificacion','1112792872')->value('id');
+        examen_fisico::create([
+            'id_est'=>$id_est2,
+            'p_cadera'=>'2',
+            'p_cintura'=>'',
+            'pulso'=>'',
+            'cabeza'=>'',
+            'ojos'=>'',
+            'agudeza_visual'=>'',
+            'fondo_ojo'=>'',
+            'oidos'=>'',
+            'nariz'=>'',
+            'boca'=>'',
+            'cuello'=>'',
+            'cardiopulmonar'=>'2',
+            'abdomen'=>'',
+            'piel'=>'',
+            'genitales'=>'',
+            'extrem_columna'=>'',
+            'neurologicos_pares'=>'',
+            'motor_cord_fuerza'=>'',
+            'motor_cord_tono'=>'',
+            'sensib_supe_conservado'=>'',
+            'sensib_prof_conservada'=>'',
+            'sensib_discriminativa'=>'',
+            'cutaneos'=>'',
+            'reflejos'=>'',
+            'miotacticos'=>'',
+            'patologicos'=>'',
+            'peso'=>'',
+            'talla'=>'',
+            'IMC'=>'',
+            'indice_cc'=>'',
+
+        ]);
+        $id_est3 = estudiantes::where('identificacion','1112792873')->value('id');
+        examen_fisico::create([
+            'id_est'=>$id_est3,
+            'p_cadera'=>'',
+            'p_cintura'=>'3',
+            'pulso'=>'',
+            'cabeza'=>'',
+            'ojos'=>'',
+            'agudeza_visual'=>'',
+            'fondo_ojo'=>'',
+            'oidos'=>'',
+            'nariz'=>'',
+            'boca'=>'',
+            'cuello'=>'',
+            'cardiopulmonar'=>'',
+            'abdomen'=>'',
+            'piel'=>'',
+            'genitales'=>'',
+            'extrem_columna'=>'',
+            'neurologicos_pares'=>'3',
+            'motor_cord_fuerza'=>'',
+            'motor_cord_tono'=>'',
+            'sensib_supe_conservado'=>'',
+            'sensib_prof_conservada'=>'',
+            'sensib_discriminativa'=>'',
+            'cutaneos'=>'',
+            'reflejos'=>'',
+            'miotacticos'=>'',
+            'patologicos'=>'',
+            'peso'=>'',
+            'talla'=>'',
+            'IMC'=>'',
+            'indice_cc'=>'',
+
+        ]);
+        $id_est4 = estudiantes::where('identificacion','1112792874')->value('id');
+       examen_fisico::create([
+            'id_est'=>$id_est4,
+            'p_cadera'=>'4',
+            'p_cintura'=>'',
+            'pulso'=>'',
+            'cabeza'=>'',
+            'ojos'=>'',
+            'agudeza_visual'=>'',
+            'fondo_ojo'=>'',
+            'oidos'=>'',
+            'nariz'=>'',
+            'boca'=>'',
+            'cuello'=>'',
+            'cardiopulmonar'=>'',
+            'abdomen'=>'',
+            'piel'=>'',
+            'genitales'=>'',
+            'extrem_columna'=>'',
+            'neurologicos_pares'=>'4',
+            'motor_cord_fuerza'=>'',
+            'motor_cord_tono'=>'',
+            'sensib_supe_conservado'=>'',
+            'sensib_prof_conservada'=>'',
+            'sensib_discriminativa'=>'',
+            'cutaneos'=>'',
+            'reflejos'=>'',
+            'miotacticos'=>'',
+            'patologicos'=>'',
+            'peso'=>'',
+            'talla'=>'',
+            'IMC'=>'',
+            'indice_cc'=>'',
+
+        ]);
+        $id_est5 = estudiantes::where('identificacion','1112792875')->value('id');
+        examen_fisico::create([
+            'id_est'=>$id_est5,
+            'p_cadera'=>'5',
+            'p_cintura'=>'',
+            'pulso'=>'',
+            'cabeza'=>'',
+            'ojos'=>'',
+            'agudeza_visual'=>'',
+            'fondo_ojo'=>'',
+            'oidos'=>'',
+            'nariz'=>'',
+            'boca'=>'',
+            'cuello'=>'',
+            'cardiopulmonar'=>'',
+            'abdomen'=>'',
+            'piel'=>'',
+            'genitales'=>'',
+            'extrem_columna'=>'',
+            'neurologicos_pares'=>'5',
+            'motor_cord_fuerza'=>'',
+            'motor_cord_tono'=>'',
+            'sensib_supe_conservado'=>'',
+            'sensib_prof_conservada'=>'',
+            'sensib_discriminativa'=>'',
+            'cutaneos'=>'',
+            'reflejos'=>'',
+            'miotacticos'=>'',
+            'patologicos'=>'',
+            'peso'=>'',
+            'talla'=>'',
+            'IMC'=>'',
+            'indice_cc'=>'',
+
+        ]);
+    }
+}
