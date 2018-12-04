@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             'antecedentes_familiares',
             'medicos',
             'consultas',
-            'examen_fisicos'
+            'examen_fisicos',
+            'impresion_diagnosticas',
+            'roles'
 
 
 
@@ -37,6 +39,7 @@ class DatabaseSeeder extends Seeder
              $this->call(RoleTableSeeder::class);
              $this->call(consultaTableSeeder::class);
              $this->call(ExamenFisicoTableSeeder::class);
+             $this->call(diagnosticoTableSeeder::class);
 
     }
 

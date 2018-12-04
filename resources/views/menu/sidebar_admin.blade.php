@@ -33,26 +33,10 @@
                     <a href="{{route('cons.index')}}">
                         <i class="fas fa-book"></i>Agenda</a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-calendar-times"></i>Calendario</a>
-                </li>
-
-                @if(Auth::User()->role_id=='1')
-                <li>
-                    <a href="#">
-                        <i class="fas fa-paper-plane"></i>Agendar cita</a>
-                </li>
-
-                @endif
 
 
 
-                <li>
-                    <a href="#">
 
-
-                </li>
             </ul>
 
         </nav>

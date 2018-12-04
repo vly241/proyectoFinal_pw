@@ -15,6 +15,12 @@
 
             <div class="page-container" >
                 <!-- MAIN CONTENT-->
+                <div class="breadcrumb-holder container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item active">Estudiantes</li>
+                    </ul>
+                </div>
                 <h1>Crear un Nuevo estudiante</h1>
                 @if ($errors->any())
                     <div class="alert alert-danger">

@@ -30,7 +30,7 @@ Route::get('/estudiantes/nuevo','EstudiantesController@create')->name('est.creat
 Route::post('/estudiantes/crear','EstudiantesController@store');
 Route::get('/estudiantes/{estudiantes}/editar','EstudiantesController@edit')->name('est.edit');
 Route::post('/estudiantes/{estudiantes}', 'EstudiantesController@update');
-Route::delete('/estudiantes/{estudiantes}','EstudiantesController@destroy')->name('est.destroy');
+
 Route::get('/estudiantes/medico','MedicoController@index')->name('medico');
 
 
@@ -50,6 +50,22 @@ Route::get('/estudiantes/{id}/historialMedico','ExamenFisicoController@index')->
 Route::get('/estudiantes/historialMedico/{id}','ExamenFisicoController@show')
     ->where('id', '[0-9]+')
     ->name('hm.show');
+Route::get('/estudiantes/{examen_fisico}/historialMedico/crear','ExamenFisicoController@edit')->name('hm.edit');
+Route::post('/estudiantes/{examen_fisico}/historialMedico/nuevo','ExamenFisicoController@update');
+Route::get('/estudiantes/historialMedico/new','ExamenFisicoController@create')->name('hm.create');
+Route::post('/estudiantes','ExamenFisicoController@store');
+
+
+Route::get('/estudiantes/{id}/diagnostico','ImpresionDiagnosticaController@index')->name('d.index');
+Route::get('/estudiantes/diagnostico/{id}','ImpresionDiagnosticaController@show')
+    ->where('id', '[0-9]+')
+    ->name('d.show');
+Route::get('/estudiantes/{impresion_diagnostica}/diagnostico/edit','ImpresionDiagnosticaController@edit')->name('d.edit');
+Route::post('/estudiantes/{impresion_diagnostica}/diagnostico/update','ImpresionDiagnosticaController@update');
+Route::get('/estudiantes/diagnostico/new','ImpresionDiagnosticaController@create')->name('d.create');
+Route::post('/estudiantes','ImpresionDiagnosticaController@update');
+
+
 
 Route::get('/consultas','ConsultaController@index')->name('cons.index');
 

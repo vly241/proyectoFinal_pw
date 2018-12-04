@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\impresion_diagnostica;
+use App\estudiantes;
 use Illuminate\Http\Request;
 
 class ImpresionDiagnosticaController extends Controller
@@ -12,9 +13,13 @@ class ImpresionDiagnosticaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $estudiantes = estudiantes::findOrFail($id);//select * from estudiantes where id= $id
+
+
+        $d = impresion_diagnostica::all()->where('id_est',$id);//select * from where id_est = $id
+        return View('estudiante.diag_index', compact('d','estudiantes'));
     }
 
     /**
@@ -24,7 +29,10 @@ class ImpresionDiagnosticaController extends Controller
      */
     public function create()
     {
-        //
+        $estudiantes=estudiantes::all();
+        $d = impresion_diagnostica::all();
+        return View('estudiante.diag_create', compact('d','estudiantes'));
+
     }
 
     /**
@@ -33,9 +41,22 @@ class ImpresionDiagnosticaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(impresion_diagnostica $impresion_diagnostica)
     {
-        //
+        $data = request()->validate([
+            'id_est'=> '',
+            'diagnostico'=>'',
+            'plan'=>'',
+            'paraclinicos'=>'',
+
+
+
+        ]);
+
+
+
+        $impresion_diagnostica->create($data);
+        return redirect()->route('est.index');
     }
 
     /**
@@ -44,9 +65,10 @@ class ImpresionDiagnosticaController extends Controller
      * @param  \App\impresion_diagnostica  $impresion_diagnostica
      * @return \Illuminate\Http\Response
      */
-    public function show(impresion_diagnostica $impresion_diagnostica)
+    public function show($id)
     {
-        //
+        $d = impresion_diagnostica::findOrFail($id); //select * from estudiantes where id= $id
+        return View('estudiante.diag_show', compact('d'));
     }
 
     /**
@@ -57,7 +79,7 @@ class ImpresionDiagnosticaController extends Controller
      */
     public function edit(impresion_diagnostica $impresion_diagnostica)
     {
-        //
+        return view('estudiante.diag_edit',['impresion_diagnostica'=>$impresion_diagnostica]);
     }
 
     /**
@@ -69,7 +91,19 @@ class ImpresionDiagnosticaController extends Controller
      */
     public function update(Request $request, impresion_diagnostica $impresion_diagnostica)
     {
-        //
+        $data = request()->validate([
+            'id_est'=> $impresion_diagnostica,
+            'diagnostico'=>'',
+            'plan'=>'',
+            'paraclinicos'=>'',
+
+
+        ]);
+
+
+
+        $impresion_diagnostica->update($data);
+        return redirect()->route('d.index',['impresion_diagnostica'=>$impresion_diagnostica]);
     }
 
     /**

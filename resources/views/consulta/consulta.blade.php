@@ -47,11 +47,7 @@
                 <section class="dashboard-counts no-padding-bottom">
                     <div class="container-fluid">
                         <div class="bg-white has-shadow">
-                            @if(Auth::User()->role_id=='1')
-                                <div class="row col-sm-8 col-sm-offset-2" >
-                                    <button onclick="window.location='#'" type="button" class="btn btn-info"><span class="fa fa-plus"></span> Nuevo</button>
-                                </div>
-                            @endif
+
                             <table id="example" class="table table-bordered table-striped table-condensed" style="text-align: center;">
                                 <thead >
                                 <tr>
@@ -81,12 +77,6 @@
 
                                                 <a href="{{route('est.edit',['id'=>$est->id])}}" class="btn btn-warning" class="btn btn-primary"><img src="{{asset('img/edit.png')}}" alt="editar" width="20px" href="20px"></a>
                                             </td>
-                                            <td>
-                                                <form action="{{route('est.destroy', ['id'=>$est->id])}}" method="POST">
-                                                    {{ method_field('DELETE') }}
-                                                    @csrf
-                                                    <button onclick="return confirm('Eliminar registro?')" type="submit" class="btn btn-danger btn-sm"><i class='fa fa-trash'></i></button>
-                                                </form></td>
 
 
 

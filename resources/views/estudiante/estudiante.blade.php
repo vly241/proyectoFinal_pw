@@ -80,12 +80,7 @@
 
                                             <a href="{{route('est.edit',['id'=>$est->id])}}" class="btn btn-warning" class="btn btn-primary"><img src="{{asset('img/edit.png')}}" alt="editar" width="20px" href="20px"></a>
                                         </td>
-                                        <td>
-                                            <form action="{{route('est.destroy', ['id'=>$est->id])}}" method="POST">
-                                                {{ method_field('DELETE') }}
-                                                @csrf
-                                                <button onclick="return confirm('Eliminar registro?')" type="submit" class="btn btn-danger btn-sm"><i class='fa fa-trash'></i></button>
-                                            </form></td>
+
 
 
 

@@ -29,7 +29,9 @@ class ExamenFisicoController extends Controller
      */
     public function create()
     {
-        //
+        $estudiantes=estudiantes::all();
+        $examen_fisico = examen_fisico::all();
+        return View('estudiante.historialm_create', compact('examen_fisico','estudiantes'));
     }
 
     /**
@@ -38,9 +40,50 @@ class ExamenFisicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(examen_fisico $examen_fisico)
     {
-        //
+
+
+        $data = request()->validate([
+            'id_est'=> '',
+            'p_cadera'=>'',
+            'p_cintura'=>'',
+            'pulso'=>'',
+            'cabeza'=>'',
+            'ojos'=>'',
+            'agudeza_visual'=>'',
+            'fondo_ojo'=>'',
+            'oidos'=>'',
+            'nariz'=>'',
+            'boca'=>'',
+            'cuello'=>'',
+            'cardiopulmonar'=>'',
+            'abdomen'=>'',
+            'piel'=>'',
+            'genitales'=>'',
+            'extrem_columna'=>'',
+            'neurologicos_pares'=>'',
+            'motor_cord_fuerza'=>'',
+            'motor_cord_tono'=>'',
+            'sensib_supe_conservado'=>'',
+            'sensib_prof_conservada'=>'',
+            'sensib_discriminativa'=>'',
+            'cutaneos'=>'',
+            'reflejos'=>'',
+            'miotacticos'=>'',
+            'patologicos'=>'',
+            'peso'=>'',
+            'talla'=>'',
+            'IMC'=>'',
+            'indice_cc'=>'',
+
+
+        ]);
+
+
+
+        $examen_fisico->create($data);
+        return redirect()->route('est.index');
     }
 
     /**
@@ -63,7 +106,7 @@ class ExamenFisicoController extends Controller
      */
     public function edit(examen_fisico $examen_fisico)
     {
-        //
+        return view('estudiante.historialm_edit',['examen_fisico'=>$examen_fisico]);
     }
 
     /**
@@ -75,7 +118,46 @@ class ExamenFisicoController extends Controller
      */
     public function update(Request $request, examen_fisico $examen_fisico)
     {
-        //
+        $data = request()->validate([
+            'id_est'=> $examen_fisico,
+            'p_cadera'=>'',
+            'p_cintura'=>'',
+            'pulso'=>'',
+            'cabeza'=>'',
+            'ojos'=>'',
+            'agudeza_visual'=>'',
+            'fondo_ojo'=>'',
+            'oidos'=>'',
+            'nariz'=>'',
+            'boca'=>'',
+            'cuello'=>'',
+            'cardiopulmonar'=>'',
+            'abdomen'=>'',
+            'piel'=>'',
+            'genitales'=>'',
+            'extrem_columna'=>'',
+            'neurologicos_pares'=>'',
+            'motor_cord_fuerza'=>'',
+            'motor_cord_tono'=>'',
+            'sensib_supe_conservado'=>'',
+            'sensib_prof_conservada'=>'',
+            'sensib_discriminativa'=>'',
+            'cutaneos'=>'',
+            'reflejos'=>'',
+            'miotacticos'=>'',
+            'patologicos'=>'',
+            'peso'=>'',
+            'talla'=>'',
+            'IMC'=>'',
+            'indice_cc'=>'',
+
+
+        ]);
+
+
+
+        $examen_fisico->update($data);
+        return redirect()->route('hm.index',['examen_fisico'=>$examen_fisico]);
     }
 
     /**
@@ -86,6 +168,8 @@ class ExamenFisicoController extends Controller
      */
     public function destroy(examen_fisico $examen_fisico)
     {
-        //
+        $examen_fisico->delete();
+
+        return redirect(route('hm.index'));
     }
 }
